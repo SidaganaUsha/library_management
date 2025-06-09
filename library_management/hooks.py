@@ -1,3 +1,4 @@
+
 app_name = "library_management"
 app_title = "library_management"
 app_publisher = "Usha Sidagana"
@@ -14,6 +15,15 @@ fixtures = [
                 "Set Article status to Available if Return Date is set in Library Transaction",
                 "Changing the Status is Returned if Article is Returned in Library Transaction",
 	        "Do not allow saving a Library Transaction if the linked Article status is Issued"
+            ]]
+        }
+    },
+    {
+        "doctype": "Client Script",
+        "filters": {
+            "name": ["in", [
+                "Set Returned",
+                "Status Color Coded on Library Transaction"
             ]]
         }
     }

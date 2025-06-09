@@ -1,0 +1,24 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Library Transaction",
+  "enabled": 1,
+  "modified": "2025-06-09 15:36:25.067287",
+  "module": "library_management",
+  "name": "Status Color Coded on Library Transaction",
+  "script": "frappe.listview_settings['Library Transaction'] = {\n    add_fields: [\"status\"],\n    get_indicator: function (doc) {\n        if (doc.status === \"Issued\") {\n            return [__(\"Issued\"), \"orange\", \"status,=,Issued\"];\n        } else if (doc.status === \"Returned\") {\n            return [__(\"Returned\"), \"green\", \"status,=,Returned\"];\n        } else if (doc.status === \"Overdue\") {\n            return [__(\"Overdue\"), \"red\", \"status,=,Overdue\"];\n        } else {\n            return [__(doc.status), \"gray\", \"status,=,\" + doc.status];\n        }\n    }\n};\n",
+  "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Library Transaction",
+  "enabled": 1,
+  "modified": "2025-06-09 16:00:47.123254",
+  "module": "library_management",
+  "name": "Set Returned",
+  "script": "frappe.ui.form.on('Library Transaction', {\n    refresh: function(frm) {\n        frm.add_custom_button(__('Set Return Date'), function() {\n            frappe.prompt([\n                {\n                    fieldname: 'return_date',\n                    label: 'Return Date',\n                    fieldtype: 'Date',\n                    reqd: true\n                }\n            ],\n            function(values){\n                // Set return_date\n                frm.set_value('return_date', values.return_date).then(() => {\n                    // Check current status and update it\n                    if (frm.doc.status === 'Issued') {\n                        frm.set_value('status', 'Returned');\n                    }\n\n                    // Optionally save the form to persist changes\n                    frm.save();\n\n                    frappe.msgprint(__('Return Date set to: ' + values.return_date));\n                });\n            },\n            __('Set Return Date'),\n            __('Set'));\n        });\n    }\n});\n",
+  "view": "Form"
+ }
+]
