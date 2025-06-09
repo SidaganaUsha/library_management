@@ -5,6 +5,23 @@ app_description = "library_management"
 app_email = "ushasidagana08@gmail.com"
 app_license = "mit"
 
+
+fixtures = [
+    {
+        "doctype": "Server Script",
+        "filters": {
+            "name": ["in", [
+                "Set Article status to Available if Return Date is set in Library Transaction",
+                "Changing the Status is Returned if Article is Returned in Library Transaction"
+            ]]
+        }
+    }
+]
+
+
+
+
+
 # Apps
 # ------------------
 
