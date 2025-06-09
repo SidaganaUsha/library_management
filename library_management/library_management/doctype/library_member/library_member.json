@@ -41,18 +41,20 @@
   {
    "fieldname": "phone_no",
    "fieldtype": "Data",
-   "label": "Phone No"
+   "label": "Phone No",
+   "reqd": 1
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 11:53:41.648627",
+ "modified": "2025-06-09 11:27:19.283763",
  "modified_by": "Administrator",
  "module": "library_management",
  "name": "Library Member",
