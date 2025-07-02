@@ -53,8 +53,13 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-06-09 11:27:19.283763",
+ "links": [
+  {
+   "link_doctype": "Library Transaction",
+   "link_fieldname": "library_member"
+  }
+ ],
+ "modified": "2025-07-02 12:09:11.593297",
  "modified_by": "Administrator",
  "module": "library_management",
  "name": "Library Member",
